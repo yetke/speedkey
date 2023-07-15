@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css" />
+        <style>
+            [contentEditable=true]:empty:not(:focus):before {
+                content: attr(data-text)
+            }
+        </style>
+        <title>Speedkey</title>
+    </head>
+    <body>
+        <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px" id="tabs">
+                <li class="mr-2">
+                    <button onClick="showTab(1)" type="button" id="tab1" data-tabs-target="#tab1_content" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Tab 1</button>
+                </li>
+                <li class="mr-2" id="addNewTabLi">
+                    <button onClick="newTab();" style="height:100%" type="button" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                        <svg class="w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div id="tabContent">
+            <div class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="tab1_content" role="tabpanel" aria-labelledby="tab1">
+                <div style="max-width: 50em; margin: 0 auto">
+                    <div style="margin:0.5em">
+                        <input type="text" id="tab_title_1" style="display: inline-block" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title" required>
+                        <div style="float: right">
+                        <select id="layouts_1" style="display:inline-block" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="" selected>Choose a layout</option>
+                        </select>
+                        <button onclick="deleteTab(1)" type="button" class="py-2.5">
+                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
+                              </svg>
+                        </button>
+                        </div>
+                    </div>
+                    <div style="margin:0.5em">
+                        <textarea id="input_content_1" type="text" data-text="Type here..." style="min-height:5em" class="input block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="simple-keyboard" style="max-width: 49.5em; margin: 0 auto"></div>
+        <div style="margin: 10em auto 0 auto; max-width: 49.5em;">
+            <button title="Export" onclick="download()">Export</button>
+            <label for="import_file">Import</label>
+            <input id="import_file" type="file" style="display: none">
+
+
+            <span style="float:right"><a href="https://github.com/yetke/speedkey">Speedkey</a></span>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-keyboard-layouts@latest/build/index.min.js"></script>
+        <script src="./keyboard.js"></script>  
+        <script src="./main.js"></script>
+    </body>
+</html>
